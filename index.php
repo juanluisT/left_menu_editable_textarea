@@ -1,4 +1,5 @@
 <?php
+/*  thanks for the loging code to  */
 define('INCLUDE_CHECK',true);
 require 'connect.php';
 require 'functions.php';
@@ -56,7 +57,9 @@ if($_POST['submit']=='Login')
     exit;
 }
 ?>
-<!-- Author: Michael Milstead / Mode87.com
+<!--
+tamplate author:
+Author: Michael Milstead / Mode87.com
 	 for Untame.net
 	 Bootstrap Tutorial, 2013
 -->
@@ -202,6 +205,7 @@ $resEmp = mysql_query($queEmp, $conexion) or die(mysql_error());
 $totEmp = mysql_num_rows($resEmp);
    while ($reg = mysql_fetch_array($resEmp)) { ?>
 <tr>
+<!--- CKeditor for the editing  live textareas--> 
     <script src="ckeditor/ckeditor.js"></script>
     <link href="ckeditor/sample/sample.css" rel="stylesheet">
     <style>
@@ -225,14 +229,14 @@ $totEmp = mysql_num_rows($resEmp);
 
 
 <script>
-        CKEDITOR.replace( 'texto<?=$reg["id"]; ?>', {
+        CKEDITOR.replace( 'texto<?=$reg["id"]; ?>', {  ///texto + id so every fild is difrent on ID
     fullPage: true,
     allowedContent: true
 });
     </script>
   
   <script>
-        CKEDITOR.replace( 'texto<?=$reg["id"]; ?>+1', {
+        CKEDITOR.replace( 'texto<?=$reg["id"]; ?>+1', { ///texto + id so every fild is difrent on ID and a umber so is diferent fro the previus
     fullPage: true,
     allowedContent: true
 });
@@ -279,7 +283,7 @@ $totEmp = mysql_num_rows($resEmp);
 	    		</div>
 	    		
 	    		
-	    		<!--*****************INGLES--------******************--->
+	    		<!--*****************English******************--->
 	    		<div id="ingles" class="tab-pane">
                    <table border="0"  align="center"  class="table table-condensed table-hover">
   <tr>
@@ -323,186 +327,7 @@ $totEmp = mysql_num_rows($resEmp);
 					<img src="photos/japan/13.jpg">
 				</div>
 	    		<div id="misc" class="tab-pane">
-	    			<h1>Miscellaneous Stuff</h1>
-	    			<hr>
-
-						<div class="btn-toolbar">
-						    <button class="btn btn-primary">New User</button>
-						    <button class="btn">Import</button>
-						    <button class="btn">Export</button>
-						</div>
-						<div class="well">
-						    <table class="table">
-						      <thead>
-						        <tr>
-						          <th>#</th>
-						          <th>First Name</th>
-						          <th>Last Name</th>
-						          <th>Username</th>
-						          <th style="width: 36px;"></th>
-						        </tr>
-						      </thead>
-						      <tbody>
-						        <tr>
-						          <td>1</td>
-						          <td>Mark</td>
-						          <td>Tompson</td>
-						          <td>the_mark7</td>
-						          <td>
-						              <a href="user.html"><i class="icon-pencil"></i></a>
-						              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-						          </td>
-						        </tr>
-						        <tr>
-						          <td>2</td>
-						          <td>Ashley</td>
-						          <td>Jacobs</td>
-						          <td>ash11927</td>
-						          <td>
-						              <a href="user.html"><i class="icon-pencil"></i></a>
-						              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-						          </td>
-						        </tr>
-						        <tr>
-						          <td>3</td>
-						          <td>Audrey</td>
-						          <td>Ann</td>
-						          <td>audann84</td>
-						          <td>
-						              <a href="user.html"><i class="icon-pencil"></i></a>
-						              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-						          </td>
-						        </tr>
-						        <tr>
-						          <td>4</td>
-						          <td>John</td>
-						          <td>Robinson</td>
-						          <td>jr5527</td>
-						          <td>
-						              <a href="user.html"><i class="icon-pencil"></i></a>
-						              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-						          </td>
-						        </tr>
-						        <tr>
-						          <td>5</td>
-						          <td>Aaron</td>
-						          <td>Butler</td>
-						          <td>aaron_butler</td>
-						          <td>
-						              <a href="user.html"><i class="icon-pencil"></i></a>
-						              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-						          </td>
-						        </tr>
-						        <tr>
-						          <td>6</td>
-						          <td>Chris</td>
-						          <td>Albert</td>
-						          <td>cab79</td>
-						          <td>
-						              <a href="user.html"><i class="icon-pencil"></i></a>
-						              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-						          </td>
-						        </tr>
-						      </tbody>
-						    </table>
-						</div>
-						<div class="pagination">
-						    <ul>
-						        <li><a href="#">Prev</a></li>
-						        <li><a href="#">1</a></li>
-						        <li><a href="#">2</a></li>
-						        <li><a href="#">3</a></li>
-						        <li><a href="#">4</a></li>
-						        <li><a href="#">Next</a></li>
-						    </ul>
-						</div>
-						<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						    <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						        <h3 id="myModalLabel">Delete Confirmation</h3>
-						    </div>
-						    <div class="modal-body">
-						        <p class="error-text">Are you sure you want to delete the user?</p>
-						    </div>
-						    <div class="modal-footer">
-						        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-						        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
-						    </div>
-						</div>
-
-	    			 <form class="form-horizontal">
-						    <fieldset>
-						        <div class="control-group">
-						            <label class="control-label">Full Name</label>
-						            <div class="controls">
-						                <input id="full-name" name="full-name" type="text" placeholder="full name"
-						                class="input-xlarge">
-						                <p class="help-block"></p>
-						            </div>
-						        </div>
-						        <!-- address-line1 input-->
-						        <div class="control-group">
-						            <label class="control-label">Address Line 1</label>
-						            <div class="controls">
-						                <input id="address-line1" name="address-line1" type="text" placeholder="address line 1"
-						                class="input-xlarge">
-						                <p class="help-block">Street address, P.O. box, company name, c/o</p>
-						            </div>
-						        </div>
-						        <!-- address-line2 input-->
-						        <div class="control-group">
-						            <label class="control-label">Address Line 2</label>
-						            <div class="controls">
-						                <input id="address-line2" name="address-line2" type="text" placeholder="address line 2"
-						                class="input-xlarge">
-						                <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
-						            </div>
-						        </div>
-						        <!-- city input-->
-						        <div class="control-group">
-						            <label class="control-label">City / Town</label>
-						            <div class="controls">
-						                <input id="city" name="city" type="text" placeholder="city" class="input-xlarge">
-						                <p class="help-block"></p>
-						            </div>
-						        </div>
-						        <!-- region input-->
-						        <div class="control-group">
-						            <label class="control-label">State / Province / Region</label>
-						            <div class="controls">
-						                <input id="region" name="region" type="text" placeholder="state / province / region"
-						                class="input-xlarge">
-						                <p class="help-block"></p>
-						            </div>
-						        </div>
-						        <!-- postal-code input-->
-						        <div class="control-group">
-						            <label class="control-label">Zip / Postal Code</label>
-						            <div class="controls">
-						                <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code"
-						                class="input-xlarge">
-						                <p class="help-block"></p>
-						            </div>
-						        </div>
-						        <!-- country select -->
-						        <div class="control-group">
-						            <label class="control-label">Country</label>
-						            <div class="controls">
-						                <select id="country" name="country" class="input-xlarge">
-						                    <option value="" selected="selected">(please select a country)</option>
-						                    <option value="AF">Afghanistan</option>
-						                    <option value="AL">Albania</option>
-						                    <option value="DZ">Algeria</option>
-						                    <option value="AS">American Samoa</option>
-						                    <option value="AD">Andorra</option>
-						                    <option value="AO">Angola</option>
-						                    <option value="AI">Anguilla</option>
-						                    <option value="AQ">Antarctica</option>
-						                </select>
-						            </div>
-						        </div>
-						    </fieldset>
-						</form>
+	    		
 	    		</div>
 			</div>
 		</div>
